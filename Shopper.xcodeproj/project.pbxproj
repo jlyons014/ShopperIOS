@@ -15,6 +15,7 @@
 		859D3B002371C09C00B8E25A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 859D3AFF2371C09C00B8E25A /* Assets.xcassets */; };
 		859D3B032371C09C00B8E25A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 859D3B012371C09C00B8E25A /* LaunchScreen.storyboard */; };
 		859D3B0B2371C42300B8E25A /* ShopperTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859D3B0A2371C42300B8E25A /* ShopperTableViewController.swift */; };
+		85E265FC237D9D9200DC44B6 /* ShoppingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E265FB237D9D9200DC44B6 /* ShoppingListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		859D3B022371C09C00B8E25A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		859D3B042371C09C00B8E25A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		859D3B0A2371C42300B8E25A /* ShopperTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopperTableViewController.swift; sourceTree = "<group>"; };
+		85E265FB237D9D9200DC44B6 /* ShoppingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				859D3B042371C09C00B8E25A /* Info.plist */,
 				859D3AFC2371C09B00B8E25A /* Shopper.xcdatamodeld */,
 				859D3B0A2371C42300B8E25A /* ShopperTableViewController.swift */,
+				85E265FB237D9D9200DC44B6 /* ShoppingListTableViewController.swift */,
 			);
 			path = Shopper;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				859D3AFE2371C09B00B8E25A /* Shopper.xcdatamodeld in Sources */,
 				859D3AF42371C09B00B8E25A /* AppDelegate.swift in Sources */,
 				859D3AF62371C09B00B8E25A /* SceneDelegate.swift in Sources */,
+				85E265FC237D9D9200DC44B6 /* ShoppingListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
