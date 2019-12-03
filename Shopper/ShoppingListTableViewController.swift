@@ -7,6 +7,7 @@
 //
 import UIKit
 import CoreData
+import UserNotifications
 
 class ShoppingListTableViewController: UITableViewController {
     // create a reference to a context
@@ -81,6 +82,43 @@ class ShoppingListTableViewController: UITableViewController {
         context.delete(item)
         do{
             try context.save()
+        } catch {
+            print("Error deleting ShoppingListItems from core data!")
+        }
+        loadShoppingListItems()
+    }
+    
+    func shoppingListDoneNotification() {
+        
+        var done = true
+        
+        // loop through shopping list items
+        for item in shoppingListItems {
+            // check if any of purchase attributes are false
+            if item.purchased == false {
+                // set done to false
+                done = false
+            }
+        }
+        
+        // check if done is true
+        if done == true {
+            
+            // create content objejct that controls the content and sound of the notification
+            let content = UNMutableNotificationContent()
+            content.title = "Shopper"
+            content.body = "Shopping List Complete"
+            content.sound = UNNotificationSound.default
+            
+            // create trigger object that defines when the notification will be sent and if it
+            // should be sent repeatidly
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+            
+            // create request object that is responsible for creating the notification
+            let request = UNNotificationRequest(identifier: "shopperIdentifier", content: content, trigger: trigger)
+            
+            // post the notification
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         }
     }
     
@@ -254,21 +292,24 @@ class ShoppingListTableViewController: UITableViewController {
         self.saveShoppingListIems()
         
         // call deselectRow method to allow update to be visible in table view controller
-        tableView.deselectRow(at: <#T##IndexPath#>, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        shoppingListDoneNotification()
         
       }
       
-      /*
+      
       // Override to support editing the table view.
       override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
           if editingStyle == .delete {
               // Delete the row from the data source
-              tableView.deleteRows(at: [indexPath], with: .fade)
-          } else if editingStyle == .insert {
-              // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            let item = shoppingListItems[indexPath.row]
+            deleteShoppingListItem(item: item)
+            setTitle()
           }
-      }
-      */
+          }
+      
+      
     
 
       /*
